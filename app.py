@@ -7,7 +7,7 @@ app = FastAPI()
 class ModelName(str, Enum):
     gpt4o = "gpt-4o"
     gpt4 = "gpt-4"
-    gpt3point5 = "gpta3.5-turbo"
+    gpt3point5 = "gpt3.5-turbo"
 
 class EncodeRequest(BaseModel):
     text: str
