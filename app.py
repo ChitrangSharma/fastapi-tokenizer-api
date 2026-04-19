@@ -7,7 +7,7 @@ app = FastAPI()
 class ModelName(str, Enum):
     gpt4o = "gpt-4o"
     gpt4 = "gpt-4"
-    gpt3point5 = "gpt-3.5-turbo"
+    gpt3point5 = "gpta3.5-turbo"
 
 class EncodeRequest(BaseModel):
     text: str
@@ -29,6 +29,6 @@ def encode(request: EncodeRequest):
 
 @app.post("/decode")
 def decode(request: DecodeRequest):
-    encoder = tiktoken.encoding_for_model(request.model.value)
-    decoded_text = encoder.decode(request.tokens)
+    decoder = tiktoken.encoding_for_model(request.model.value)
+    decoded_text = decoder.decode(request.tokens)
     return {"text": decoded_text}
